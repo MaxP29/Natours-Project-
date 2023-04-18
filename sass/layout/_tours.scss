@@ -1,0 +1,60 @@
+@use "../abstracts/mixins" as *;
+
+.tours {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  margin: 0 auto;
+  max-width: 114rem;
+
+  @include respond(tab-port) {
+    gap: 3rem;
+    margin: auto 2rem;
+  }
+
+  @include respond(phone-tablet) {
+    display: grid;
+    text-align: center;
+  }
+
+  &-text {
+    width: calc((100% - 6rem) / 2);
+
+    @include respond(phone-tablet) {
+      width: auto;
+      margin: 0 4rem;
+    }
+
+    & p {
+      @include respond(tab-land) {
+        font-size: 1.2rem;
+      }
+
+      @include respond(phone-tablet) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &-image {
+    width: calc((100% - 6rem) / 2);
+
+    @include respond(phone) {
+      scale: 1.5;
+    }
+
+    @include respond(myphone) {
+      scale: 2.5;
+    }
+
+    @include respond(tab-port) {
+      margin-top: 4rem;
+    }
+
+    @include respond(phone-tablet) {
+      width: auto;
+      margin: 0 10rem;
+      margin-bottom: 20rem;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.feature-container {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+  width: auto;
+  margin: 0 2rem;
+  text-align: center;
+
+  @include respond(tab-land) {
+    gap: 2rem;
+  }
+
+  @include respond(tab-port) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: -12rem;
+  }
+
+  @include respond(myphone) {
+    grid-template-columns: 1fr;
+    margin: -14rem 4rem;
+  }
+
+  &__card {
+    padding: 4rem;
+    background-color: rgba($color-white, 0.7);
+    border-radius: 2rem;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transition: all 0.3s;
+
+    @include respond(tab-land) {
+      padding: 2rem;
+    }
+
+    @include respond(tab-port) {
+      padding: 1rem 2rem;
+    }
+
+    @include respond(phone-tablet) {
+      padding: 1rem;
+      font-size: 1.3rem;
+    }
+
+    &-icon {
+      font-size: 6rem;
+      margin-bottom: 0.5rem;
+      color: $color-primary;
+    }
+
+    &:hover {
+      transform: translateY(-1rem) scale(1.05);
+    }
+  }
+}
